@@ -26,70 +26,70 @@ concurrency:
 
 jobs:
   # Build job
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Use Node.js version
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+    - name: Use Node.js version
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
 
-      - name: Install dependencies
-        run: |
-          cd client
-          npm install
+    - name: Install dependencies
+      run: |
+        cd client
+        npm install
 
-      - name: Test
-        run: |
-          cd client
-          npm run test
+    - name: Test
+      run: |
+        cd client
+        npm run test
 
-      - name: Build
-        run: |
-          cd client
-          npm run build
+    - name: Build
+      run: |
+        cd client
+        npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.5
-        with:
-          branch: gh-pages
-          folder: client/out
-          token: ${{ secrets.GITHUB_TOKEN }}
-          clean: true
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.5
+      with:
+        branch: gh-pages
+        folder: client/out
+        token: ${{ secrets.GITHUB_TOKEN }}
+        clean: true
 
-      - name: Log deployment URL
-        run: echo "Deployment URL: https://$GITHUB_REPOSITORY.github.io/client/"
+    - name: Log deployment URL
+      run: echo "Deployment URL: https://$GITHUB_REPOSITORY.github.io/client/"
 
   deploy:
     needs: build-and-test
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Use Node.js version
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+    - name: Use Node.js version
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
 
-      - name: Install dependencies
-        run: |
-          cd client
-          npm install
+    - name: Install dependencies
+      run: |
+        cd client
+        npm install
 
-      - name: Build
-        run: |
-          cd client
-          npm run build
+    - name: Build
+      run: |
+        cd client
+        npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.4
-        with:
-          branch: gh-pages
-          folder: client/out
-          token: ${{ secrets.GITHUB_TOKEN }}
-          clean: true
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        branch: gh-pages
+        folder: client/out
+        token: ${{ secrets.GITHUB_TOKEN }}
+        clean: true
