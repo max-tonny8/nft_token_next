@@ -61,7 +61,7 @@ jobs:
         clean: true
 
     - name: Log deployment URL
-        run: echo "Deployment URL: https://$GITHUB_REPOSITORY.github.io/client/"
+      run: echo "Deployment URL: https://$GITHUB_REPOSITORY.github.io/client/"
 
   deploy:
     needs: build-and-test
