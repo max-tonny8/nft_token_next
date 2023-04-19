@@ -37,7 +37,9 @@ jobs:
         working-directory: client
 
       - name: Build
-        run: npm run build
+        run: | 
+          mkdir -p out
+          npm run build
         working-directory: client
 
       - name: Deploy to GitHub Pages
@@ -45,6 +47,8 @@ jobs:
         with:
           branch: gh-pages
           folder: client/out # Point to the output directory of the client build
+          env: env
+          clean: true
 
   # Deployment job
   deploy:
