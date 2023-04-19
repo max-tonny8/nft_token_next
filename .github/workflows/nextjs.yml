@@ -88,9 +88,6 @@ jobs:
         with:
           branch: gh-pages
           folder: client/out
-        with:
-          path: ./out
-
   # Deployment job
   deploy:
     environment:
