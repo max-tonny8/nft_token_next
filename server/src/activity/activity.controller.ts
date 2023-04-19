@@ -2,7 +2,9 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ActivityService } from './activity.service';
 import { CreateActivityDto } from './dto/create-activity.dto';
 import { UpdateActivityDto } from './dto/update-activity.dto';
+import { ApiTags } from '@nestjs/swagger/dist';
 
+@ApiTags("Activity")
 @Controller('activity')
 export class ActivityController {
   constructor(private readonly activityService: ActivityService) {}
