@@ -25,9 +25,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-test:
+  # Build job
+  build:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -41,7 +41,7 @@ jobs:
       run: |
         cd client
         npm install
-        
+
     - name: Test
       run: |
         cd client
