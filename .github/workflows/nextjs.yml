@@ -35,7 +35,7 @@ jobs:
     - name: Use Node.js version
       uses: actions/setup-node@v2
       with:
-        node-version: 'node'
+        node-version: '18.14.2'
 
     - name: Install dependencies
       run: |
