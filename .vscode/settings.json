@@ -1,0 +1,25 @@
+{
+    "window.zoomLevel": 1,
+    // EMMET
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+
+    // EDITOR
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 13,
+    "editor.inlineSuggest.enabled": true,
+    "editor.wordWrap": "on",
+    "editor.cursorWidth": 3,
+    "editor.cursorStyle": "line",
+
+    // WORKBENCHw
+    "workbench.iconTheme": "eq-material-theme-icons-darker",
+    "workbench.colorTheme": "Ayu Dark",
+    "workbench.colorCustomizations": {
+        "tab.activeBorder": "#fbff00",
+        "tab.activeForeground": "#fff",
+        "sideBar.background": "#0a0c11"
+    }
+}
